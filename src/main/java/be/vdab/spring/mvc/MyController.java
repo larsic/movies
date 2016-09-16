@@ -11,12 +11,14 @@ import java.util.List;
 
 @Controller
 public class MyController {
+
     @Autowired
     FilmRepository fr;
 
     /**
      * A controller that renders directly without a view
      */
+
     @RequestMapping("/direct")
     @ResponseBody
     String directExample() {
@@ -26,10 +28,17 @@ public class MyController {
     /**
      * A controller that uses an explicit view name
      */
+
     @RequestMapping("/bar")
     String anyMethodName() {
         return "foo";
     }
+
+    @RequestMapping({"/", "/index"})
+    String index() {
+        return "index";
+    }
+
 
     @RequestMapping("/ex")
     public String ex(Model model) {
@@ -45,4 +54,6 @@ public class MyController {
 
         return "films";
     }
+
+
 }
