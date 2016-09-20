@@ -2,6 +2,7 @@ package be.vdab.spring.mvc;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +17,11 @@ public class AddToListController {
     FilmRepository fr;
 
     @RequestMapping(value = "/saveFilm", method = RequestMethod.GET)
-    public String prepareForm(){
+    public String prepareForm(Model m){
+        Film f = new Film();
+        f.setReleaseYear("YYYY");
+
+        m.addAttribute("myFilm", f);
         return "addtolist";
     }
 
@@ -34,6 +39,16 @@ public class AddToListController {
         return "redirect:/ex";
 
     }
+
+    @RequestMapping(value = "/updateFilm", method = RequestMethod.GET)
+    public String fillInFilm(Model m, @RequestParam("filmid") Integer id){
+
+        m.addAttribute("myFilm", fr.findById(id));
+        return "addtolist";
+
+    }
+
+
 
 
 }

@@ -33,7 +33,8 @@
                     <th>Description</th>
                     <th>Year</th>
                     <th>Duration</th>
-                    <th>Remove</th>
+                    <th>Actions</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -44,10 +45,18 @@
                     <td th:text="${f.releaseYear}"></td>
                     <td th:text="${f.length}"></td>
                     <td>
+                        <div style="width: 50%; float: left">
                         <form method="post" action="/deleteFilm">
                             <input type="hidden" th:value="${f.id}" name="filmid"/>
                         <button type="submit" class="btn btn-xs">Delete</button>
                         </form>
+                        </div>
+                        <div style="width: 50%; float: right">
+                        <form method="get" action="/updateFilm">
+                            <input type="hidden" th:value="${f.id}" name="filmid"/>
+                            <button type="submit" class="btn btn-xs">Edit</button>
+                        </form>
+                        </div>
                     </td>
                 </tr>
                 </tbody>
