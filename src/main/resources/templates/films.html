@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:spring="http://java.sun.com/xml/ns/javaee">
 <head>
     <meta charset="UTF-8" />
     <link th:href="@{/css/bootstrap-3.0.3.min.css}" rel="stylesheet"/>
@@ -15,7 +15,7 @@
         <ul class="nav navbar-nav">
             <li><a th:href="@{/index}">Home</a></li>
             <li><a th:href="@{/ex}">MyList</a></li>
-            <li><a th:href="@{/addtolist}">AddToList</a></li>
+            <li><a th:href="@{/saveFilm}">AddToList</a></li>
         </ul>
     </div>
 </div>
@@ -28,20 +28,27 @@
             <table class="table table-striped table-hover">
                 <thead>
                 <tr>
-                    <th>Id</th>
+
                     <th>Title</th>
                     <th>Description</th>
                     <th>Year</th>
                     <th>Duration</th>
+                    <th>Remove</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="f : ${filmList}">
-                    <td  th:text="${f.id}"></td>
+
                     <td th:text="${f.title}"></td>
                     <td th:text="${f.description}"></td>
                     <td th:text="${f.releaseYear}"></td>
                     <td th:text="${f.length}"></td>
+                    <td>
+                        <form method="post" action="/deleteFilm">
+                            <input type="hidden" th:value="${f.id}" name="filmid"/>
+                        <button type="submit" class="btn btn-xs">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 </tbody>
             </table>

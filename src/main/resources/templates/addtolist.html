@@ -15,7 +15,7 @@
         <ul class="nav navbar-nav">
             <li><a th:href="@{/index}">Home</a></li>
             <li><a th:href="@{/ex}">MyList</a></li>
-            <li><a th:href="@{/addtolist}">AddToList</a></li>
+            <li><a th:href="@{/saveFilm}">AddToList</a></li>
         </ul>
     </div>
 </div>
@@ -23,7 +23,7 @@
     <div class="page-header text-center">
         <h3><span class="rd-red">Add</span><span class="rd-blue">To</span><span class="rd-red">List</span></h3>
     </div>
-    <form class="form-horizontal" method="post">
+    <form class="form-horizontal" method="post" th:action="@{/saveFilm}">
         <div class="form-group">
             <label for="title" class="col-sm-2 control-label">Title</label>
             <div class="col-sm-10">
