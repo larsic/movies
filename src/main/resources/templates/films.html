@@ -40,8 +40,8 @@
                 <tbody>
                 <tr th:each="f : ${filmList}">
 
-                    <td th:text="${f.title}"></td>
-                    <td th:text="${#strings.abbreviate(f.description,20)}"></td>
+                    <td th:text="${#strings.abbreviate(f.title,50)}"></td>
+                    <td th:text="${#strings.abbreviate(f.description,40)}"></td>
                     <td th:text="${f.releaseYear}"></td>
                     <td th:text="${f.length}"></td>
                     <td>
