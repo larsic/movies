@@ -11,3 +11,7 @@
 .rd-red {
   color: black;
 }
+
+ .error {
+   color: red; font-weight: bold;
+ }

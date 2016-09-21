@@ -3,9 +3,13 @@ package be.vdab.spring.mvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 /**
  * Created by L on 16/09/2016.
@@ -19,16 +23,20 @@ public class AddToListController {
     @RequestMapping(value = "/saveFilm", method = RequestMethod.GET)
     public String prepareForm(Model m){
         Film f = new Film();
-        f.setReleaseYear("YYYY");
-
         m.addAttribute("myFilm", f);
         return "addtolist";
     }
 
     @RequestMapping(value = "/saveFilm", method = RequestMethod.POST)
-    public String saveFilm(Film film){
-        fr.save(film);
-        return "redirect:/ex";
+    public String saveFilm(@Valid @ModelAttribute("myFilm") Film film, BindingResult result, Model m){
+
+        if(result.hasErrors()){
+            return "addtolist";
+        } else{
+            fr.save(film);
+            return "redirect:/ex";
+        }
+
 
     }
 
