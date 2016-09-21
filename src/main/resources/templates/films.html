@@ -29,10 +29,10 @@
                 <thead>
                 <tr>
 
-                    <th><a th:href="@{/sortByTitle}">Title</a></th>
-                    <th><a th:href="@{/sortByDescription}">Description</a></th>
-                    <th><a th:href="@{/sortByYear}">Year</a></th>
-                    <th><a th:href="@{/sortByDuration}">Duration</a></th>
+                    <th><a th:href='@{/sortAsc(field=${"title"})}'>Title</a></th>
+                    <th><a th:href='@{/sortAsc(field=${"description"})}'>Description</a></th>
+                    <th><a th:href='@{/sortAsc(field=${"releaseYear"})}'>Year</a></th>
+                    <th><a th:href='@{/sortAsc(field=${"length"})}'>Duration</a></th>
                     <th>Actions</th>
 
                 </tr>

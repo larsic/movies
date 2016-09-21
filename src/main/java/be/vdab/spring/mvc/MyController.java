@@ -6,6 +6,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Collections;
@@ -53,33 +54,9 @@ public class MyController {
         return "films";
     }
 
-    @RequestMapping("/sortByTitle")
-    public String sortTitle(Model model) {
-        List<Film> fs = fr.findAll(sortByAsc("title"));
-        System.out.println(fs);
-        model.addAttribute("filmList", fs);
-        return "films";
-    }
-
-    @RequestMapping("/sortByDescription")
-    public String sortDescription(Model model) {
-        List<Film> fs = fr.findAll(sortByAsc("description"));
-        System.out.println(fs);
-        model.addAttribute("filmList", fs);
-        return "films";
-    }
-
-    @RequestMapping("/sortByYear")
-    public String sortYear(Model model) {
-        List<Film> fs = fr.findAll(sortByAsc("releaseYear"));
-        System.out.println(fs);
-        model.addAttribute("filmList", fs);
-        return "films";
-    }
-
-    @RequestMapping("/sortByDuration")
-    public String sortDuration(Model model) {
-        List<Film> fs = fr.findAll(sortByAsc("length"));
+    @RequestMapping("/sortAsc")
+    public String sortAsc(Model model,@RequestParam(value="field") String string) {
+        List<Film> fs = fr.findAll(sortByAsc(string));
         System.out.println(fs);
         model.addAttribute("filmList", fs);
         return "films";
