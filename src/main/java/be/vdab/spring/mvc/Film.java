@@ -16,11 +16,11 @@ public class Film {
     private Integer id;
 
     @NotNull
-    @Size(min=2)
+    @Size(min=2, message="At least 2 characters needed.")
     private String title;
 
     @NotNull
-    @Size(min=2)
+    @Size(min=2, message="At least 2 characters needed.")
     private String description;
 
     @NotNull
@@ -31,8 +31,8 @@ public class Film {
 
     @NotNull
 
-    @Max(500)
-    @Min(1)
+    @Max(value=500, message="Duration cannot exceed 500 minutes.")
+    @Min(value=1, message="Duration cannot be less than 1 minute.")
     private int length;
 
     public Film() {

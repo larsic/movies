@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml"
+      xmlns:sf="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <link th:href="@{/css/bootstrap-3.0.3.min.css}" rel="stylesheet"/>
@@ -24,30 +25,40 @@
         <h3><span class="rd-red">Add</span><span class="rd-blue">To</span><span class="rd-red">List</span></h3>
     </div>
     <form class="form-horizontal" method="post" th:action="@{/saveFilm}" th:object="${myFilm}">
+
         <input type="hidden" class="form-control" id="id" name="id" th:field="*{id}"/>
-        <div class="form-group">
+        <div th:class="${#fields.hasErrors('title')? 'form-group has-error': 'form-group'}">
             <label for="title" class="col-sm-2 control-label">Title</label>
+
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="title" name="title" th:field="*{title}"/>
             </div>
+            <div class="col-sm-10 col-sm-offset-2 help-block" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
+            </div>
         </div>
-        <div class="form-group">
+        <div th:class="${#fields.hasErrors('description')? 'form-group has-error': 'form-group'}">
             <label for="description" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="description" name="description" th:field="*{description}"/>
             </div>
+            <div class="col-sm-10 col-sm-offset-2 help-block" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">
+            </div>
         </div>
-        <div class="form-group">
+        <div th:class="${#fields.hasErrors('releaseYear')? 'form-group has-error': 'form-group'}">
             <label for="year" class="col-sm-2 control-label">Year</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="year" name="releaseYear" th:field="*{releaseYear}"/>
             </div>
+            <div class="col-sm-10 col-sm-offset-2 help-block" th:if="${#fields.hasErrors('releaseYear')}" th:errors="*{releaseYear}">
+            </div>
         </div>
-        <div class="form-group">
+        <div th:class="${#fields.hasErrors('length')? 'form-group has-error': 'form-group'}">
             <label for="duration" class="col-sm-2 control-label">Duration</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="duration" name="length" th:field="*{length}" />
 
+            </div>
+            <div class="col-sm-10 col-sm-offset-2 help-block" th:if="${#fields.hasErrors('length')}" th:errors="*{length}">
             </div>
         </div>
         <div class="form-group">
