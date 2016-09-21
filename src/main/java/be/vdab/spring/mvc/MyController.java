@@ -43,10 +43,12 @@ public class MyController {
     }
 
 
+    /**
+     * printing the movie list
+     */
+
     @RequestMapping("/ex")
     public String ex(Model model) {
-
-        //return fr.findAll().toString();
 
         List<Film> fs = fr.findAll();
         System.out.println(fs);
@@ -54,13 +56,19 @@ public class MyController {
         return "films";
     }
 
+    /**
+     * sorting the movie list
+     */
+
     @RequestMapping("/sortAsc")
     public String sortAsc(Model model,@RequestParam(value="field") String string) {
+
         List<Film> fs = fr.findAll(sortByAsc(string));
         System.out.println(fs);
         model.addAttribute("filmList", fs);
         return "films";
     }
+
 
     private Sort sortByAsc(String by) {
         return new Sort(Sort.Direction.ASC, by);

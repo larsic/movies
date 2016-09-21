@@ -16,7 +16,8 @@ public class Film {
     private Integer id;
 
     @NotNull
-    @Size(min=2, message="At least 2 characters needed.")
+    @Size(min=2,max=30, message="Number of characters needs to be between 2 and 30.")
+
     private String title;
 
     @NotNull
