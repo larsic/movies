@@ -33,7 +33,17 @@ public class Film {
     @Min(value=1, message="Duration cannot be less than 1 minute.")
     private int length;
 
+    private String posterUrl;
+
     public Film() {
+    }
+
+    public String getPosterUrl() {
+        return posterUrl;
+    }
+
+    public void setPosterUrl(String posterUrl) {
+        this.posterUrl = posterUrl;
     }
 
     public Integer getId() {

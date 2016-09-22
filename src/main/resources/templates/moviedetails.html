@@ -19,14 +19,26 @@
     </div>
 </div>
 <div class="container">
-    <div class="page-header text-center">
-        <h2 th:text="${singlemovie.title}+' ('+${singlemovie.releaseYear}+')'"><span class="rd-red"></span></h2>
+    <div class="page-header text-center row">
+        <h2 th:text="${singlemovie.title}"><span class="rd-red"></span></h2>
     </div>
-    <div class="row col-lg-12">
-        <h5 th:text="${singlemovie.description}+' (Duration:'+${singlemovie.length}+' minutes)'"></h5>
+    <div class="col-md-4">
+         <img th:src="${singlemovie.posterUrl}"/>
     </div>
-
-
+    <div class="col-md-4">
+        <div><b>Summary:</b></div>
+        <div th:text="${singlemovie.description}"></div>
+    </div>
+    <div class="col-md-4">
+        <div>
+            <div  class="col-md-6"><b>Duration:</b></div>
+            <div th:text="${singlemovie.length}+' minutes'" class="col-md-6"></div>
+        </div>
+        <div>
+            <div  class="col-md-6"><b>Release year:</b></div>
+            <div th:text="${singlemovie.releaseYear}" class="col-md-6"></div>
+        </div>
+    </div>
     <hr/>
 </div>
 <script th:src="@{/js/jquery-2.0.2.min.js}"></script>
