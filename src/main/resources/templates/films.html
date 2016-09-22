@@ -13,7 +13,6 @@
 
 
         <ul class="nav navbar-nav">
-            <li><a th:href="@{/index}">Home</a></li>
             <li><a th:href="@{/ex}">MyList</a></li>
             <li><a th:href="@{/saveFilm}">AddToList</a></li>
         </ul>
@@ -40,7 +39,7 @@
                 <tbody>
                 <tr th:each="f : ${filmList}">
 
-                    <td th:text="${#strings.abbreviate(f.title,50)}"></td>
+                    <td><a th:text="${#strings.abbreviate(f.title,50)}" th:href='@{/moviedetails(field=${f.id})}'></a></td>
                     <td th:text="${#strings.abbreviate(f.description,40)}"></td>
                     <td th:text="${f.releaseYear}"></td>
                     <td th:text="${f.length}"></td>

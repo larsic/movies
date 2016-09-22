@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:spring="http://java.sun.com/xml/ns/javaee">
+<head>
+    <meta charset="UTF-8" />
+    <link th:href="@{/css/bootstrap-3.0.3.min.css}" rel="stylesheet"/>
+    <link th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="navbar navbar-default">
+    <div class="container">
+        <a class="navbar-brand"><span class="rd-red"></span></a>
+
+
+        <ul class="nav navbar-nav">
+            <li><a th:href="@{/ex}">MyList</a></li>
+            <li><a th:href="@{/saveFilm}">AddToList</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="page-header text-center">
+        <h2 th:text="${singlemovie.title}+' ('+${singlemovie.releaseYear}+')'"><span class="rd-red"></span></h2>
+    </div>
+    <div class="row col-lg-12">
+        <h5 th:text="${singlemovie.description}+' (Duration:'+${singlemovie.length}+' minutes)'"></h5>
+    </div>
+
+
+    <hr/>
+</div>
+<script th:src="@{/js/jquery-2.0.2.min.js}"></script>
+<script th:src="@{/js/bootstrap-3.0.3.min.js}"></script>
+</body>
+</html>

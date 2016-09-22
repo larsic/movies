@@ -1,5 +1,5 @@
-insert into film(title, description, release_Year, length) values('legends of the fall', 'melodrama', 1998, 120);
-insert into film(title, description, release_Year, length) values('seven', 'thriller', 1999, 110);
-insert into film(title, description, release_Year, length) values('the bourne identity', 'action', 2000, 100);
-insert into film(title, description, release_Year, length) values('city island', 'comedy', 2001, 90);
-insert into film(title, description, release_Year, length) values('ice age', 'animation', 2002, 80);
+insert into film(title, description, release_Year, length) values('legends of the fall', 'Epic tale of three brothers and their father living in the remote wilderness of 1900s USA and how their lives are affected by nature, history, war, love and betrayal. (Duration:133 minutes)', 2002, 119);
+insert into film(title, description, release_Year, length) values('seven', 'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his modus operandi. ', 1995, 127);
+insert into film(title, description, release_Year, length) values('the bourne identity', 'A man is picked up by a fishing boat, bullet-riddled and suffering from amnesia, before racing to elude assassins and regain his memory. ', 2000, 185);
+insert into film(title, description, release_Year, length) values('city island', 'The Rizzos, a family who doesn''t share their habits, aspirations, and careers with one another, find their delicate web of lies disturbed by the arrival of a young ex-con (Strait) brought home by Vince (Garcia), the patriarch of the family, who is a corrections officer in real life, and a hopeful actor in private. ', 2009, 104);
+insert into film(title, description, release_Year, length) values('ice age', 'Set during the Ice Age, a sabertooth tiger, a sloth, and a wooly mammoth find a lost human infant, and they try to return him to his tribe. ', 2002, 81);

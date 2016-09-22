@@ -1,9 +1,6 @@
 package be.vdab.spring.mvc;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -17,11 +14,11 @@ public class Film {
 
     @NotNull
     @Size(min=2,max=100, message="Number of characters needs to be between 2 and 100.")
-
     private String title;
 
     @NotNull
     @Size(min=2, message="At least 2 characters needed.")
+    @Column(length = 1000)
     private String description;
 
     @NotNull

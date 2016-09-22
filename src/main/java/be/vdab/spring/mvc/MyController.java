@@ -43,6 +43,8 @@ public class MyController {
     }
 
 
+
+
     /**
      * printing the movie list
      */
@@ -74,4 +76,15 @@ public class MyController {
         return new Sort(Sort.Direction.ASC, by);
     }
 
+
+
+    @RequestMapping({"/moviedetails"})
+    public String movieDetails(Model model,@RequestParam(value="field") Integer id) {
+
+
+        Film fs = fr.findById(id);
+        System.out.println(fs);
+        model.addAttribute("singlemovie", fs);
+        return "moviedetails";
+    }
 }
